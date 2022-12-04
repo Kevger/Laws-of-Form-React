@@ -1,0 +1,75 @@
+.cross {
+    --cross-stroke-width: 0.2em;
+    font-size: inherit;
+    position: relative;
+    border-style: solid;
+    border-width: 0;
+    border-top-width: var(--cross-stroke-width);
+    border-right-width: var(--cross-stroke-width);
+    margin-top: calc(2*var(--cross-stroke-width));
+    margin-right: calc(2*var(--cross-stroke-width));
+    padding-right: calc(3*var(--cross-stroke-width));
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    min-width: calc(2*var(--cross-stroke-width));
+    min-height: calc(1em + 2*var(--cross-stroke-width));
+}
+
+.cross:empty::before {
+    content: "\200b";
+    padding-right: calc(2*var(--cross-stroke-width));
+}
+
+.cross:not(:has(>.cross)) {
+    padding-left: calc(2*var(--cross-stroke-width));
+
+}
+
+.reentry {
+    --reentry-translateY: none;
+    --reentry-content-before: "\200b";
+    --reentry-width-before: 0px;
+    --reentry-height-before: 0px;
+    --reentry-visibility-before: hidden;
+    --reentry-transform-before: none;
+
+    --reentry-content-after: "\200b";
+    --reentry-width-after: 0px;
+    --reentry-height-after: 0px;
+    --reentry-visibility-after: hidden;
+    --reentry-transform-after: none;
+}
+
+.reentry::after {
+    position: absolute;
+    right: calc(-1*var(--cross-stroke-width));
+    bottom: calc(-1*var(--reentry-height-after) + 3*var(--cross-stroke-width));
+    content: " ";
+    visibility: var(--reentry-visibility-after);
+    width: var(--reentry-width-after);
+    height: calc(var(--reentry-height-after));
+    border-bottom: var(--cross-stroke-width) solid black;
+    border-left: var(--cross-stroke-width) solid black;
+    border-right: var(--cross-stroke-width) solid black;
+    border-color: inherit;
+    display: inline-block;
+    transform: var(--reentry-transform-after);
+}
+
+.reentry::before {
+    position: absolute;
+    right: calc(-1*var(--cross-stroke-width));
+    bottom: calc(-1*var(--reentry-height-before) + 3*var(--cross-stroke-width));
+    content: " ";
+    visibility: var(--reentry-visibility-before);
+    width: var(--reentry-width-before);
+    height: calc(var(--reentry-height-before));
+    border-bottom: var(--cross-stroke-width) solid black;
+    border-left: var(--cross-stroke-width) solid black;
+    border-right: var(--cross-stroke-width) solid black;
+    border-color: inherit;
+    display: inline-block;
+    transform: var(--reentry-transform-before);
+
+}

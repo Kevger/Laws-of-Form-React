@@ -1,0 +1,26 @@
+{
+  "name": "laws-of-form-react",
+  "version": "1.0.0",
+  "description": "A Laws of Form (1969) React library. Easily generate dynamical LoF Graphics. Moreover, LoF syntax highlighting, parsing and input fields are available.",
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "keywords": [
+    "Laws of Form",
+    "LoF",
+    "Spencer-Brown",
+    "GSB",
+    "React"
+  ],
+  "author": "Kevin German https://github.com/Kevger",
+  "license": "MIT License",
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
