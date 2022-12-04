@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 import parser from "./parser/parser";
 import "./style.css";
-export type ExpressionID = number | string;
 
+export { default as LoFInput } from "./Input";
+export {
+  default as SyntaxHighlighting,
+  LoFHighlightStyleSheet,
+} from "./SyntaxHighlighting";
+export { default as parser } from "./parser/parser";
+export type ExpressionID = number | string;
 
 /**
  * A LoF expression tree.
  * Contains all required data to draw and calculate LoF expressions
  */
- export type LoFExpressionTree<T> = {
+export type LoFExpressionTree<T> = {
   data: T;
   id: ExpressionID;
   expressions: (LoFExpressionTree<T> | ExpressionID)[];
@@ -104,23 +110,19 @@ function _LoFExpression<T>(
   );
 }
 
-
-
-
-
 /**
  * Creates JSX of nested Laws of Form expressions. Size is based on the parents font-size.
  * Since the reentry drawing happens purely with pseudo divs (::before, ::after),
  * we can only reenter a specific subexpression twice into the form.
- * 
+ *
  * How to use:
- * 
+ *
  * <LoF className="custom-class" style={{fontFamily: "cursive"}}>
- * 
+ *
  * (a)(c)c
- * 
+ *
  * <\/LoF>
- * 
+ *
  * @param {object} props
  * @param {LoFExpressionTree<T>}  props.expressionTree - Expression tree of (nested) Laws of Form expressions
  * @param {string}  props.className - Optional React className
