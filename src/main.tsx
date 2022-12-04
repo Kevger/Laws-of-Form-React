@@ -104,13 +104,32 @@ function _LoFExpression<T>(
   );
 }
 
+
+
+
+
 /**
- * @param {LoFExpressionTree} expression - Expression tree of (nested) Laws of Form expressions
- *
  * Creates JSX of nested Laws of Form expressions. Size is based on the parents font-size.
  * Since the reentry drawing happens purely with pseudo divs (::before, ::after),
  * we can only reenter a specific subexpression twice into the form.
+ * 
+ * How to use:
+ * 
+ * <LoF className="custom-class" style={{fontFamily: "cursive"}}>
+ * 
+ * (a)(c)c
+ * 
+ * <\/LoF>
+ * 
+ * @param {object} props
+ * @param {LoFExpressionTree<T>}  props.expressionTree - Expression tree of (nested) Laws of Form expressions
+ * @param {string}  props.className - Optional React className
+ * @param {React.ReactNode} props.children - LoF (Bracket) Expression that needs to be visualized e.g. ((a)(b)c)
+ * @param {React.CSSProperties}  props.style - Optional react style sheet for the LoF expression
+ * @param {boolean}  props.unwrittenCross - Optional react style sheet for the LoF expression
+ * @param {boolean}  props.uc - Optional shortcut for props.unwrittenCross
  */
+
 export default function LoF<T>({
   expressionTree,
   className,
@@ -338,7 +357,6 @@ function getReEntryWidths(inner: HTMLElement, outer: HTMLElement) {
       containsCross = true;
     }
   });
-
   // thats the reentry horizontal bottom stroke
   let reentryWidth: number;
   let flip = false;
