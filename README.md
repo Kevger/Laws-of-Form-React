@@ -106,7 +106,7 @@ import LoF from "laws-of-form-react"
 #### 🌈 Syntax Highlighting
 This library provides customizable syntax highlighting for Laws of Form expressions.
 ```jsx
-import parser from "laws-of-form-react/SyntaxHighlighting";
+import {SyntaxHighlighting} from "laws-of-form-react";
 ...
 <SyntaxHighlighting>
   $3(Syntax (highlighting) [3])
@@ -117,7 +117,7 @@ import parser from "laws-of-form-react/SyntaxHighlighting";
 #### ⌨️ LoF Input field
 Furthermore, the library offers an input field with LoF syntax highlighting.
 ```jsx
-import LoFInput from "laws-of-form-react/Input";
+import {LoFInput} from "laws-of-form-react";
 ...
 const [input, setInput] = useState("");
 ...
@@ -133,7 +133,7 @@ const [input, setInput] = useState("");
 In this library, there is also a Laws of Form parser available that can generate a Laws of Form expression tree from the expressions listed above. This tree can be used for prerendering (LoF takes expressionTree as a prop), to make modifications after the parsing process has finished or for calculations. As an example, the data fields can be filled with React components to provide custom content apart from text.
 
 ```jsx
-import parser from "LoF/parser";
+import {parser} from "laws-of-form-react";
 // Do stuff ...
 const expression = "((a)(b))"
 const expressionTree = parser.parse(expression);
